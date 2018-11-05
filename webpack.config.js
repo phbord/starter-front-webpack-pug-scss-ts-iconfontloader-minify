@@ -57,6 +57,7 @@ const CleanPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const IconFontPlugin = require('icon-font-loader').Plugin;
+const SassLintPlugin = require('sass-lint-webpack');
 
 
 module.exports = {
@@ -116,6 +117,9 @@ module.exports = {
 	plugins: [
 		new CleanPlugin(PATHS.dist),
 		new UglifyJSPlugin(),
+		new SassLintPlugin({
+			file: 'sass-lint.yml'
+		}),
 		new CheckerPlugin(),
 		new CircularDependencyPlugin({
 			exclude: /a\.ts|node_modules/,
@@ -133,7 +137,7 @@ module.exports = {
 		}),
 		new IconFontPlugin({
 			output: './icons'
-		})
+		}),
 	],
 
 	mode: 'production',
