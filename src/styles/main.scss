@@ -1,0 +1,17 @@
+@import 'base/base';
+@import 'forms/forms';
+@import 'components/components';
+@import 'layout/layout';
+
+body {
+  background: #cacaca;
+  font-family: 'Arial', serif;
+}
+
+h2 {
+  color: #3d2000;
+}
+
+h1 {
+  color: rgb(29, 0, 82);
+}
