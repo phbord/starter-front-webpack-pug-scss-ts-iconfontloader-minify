@@ -1,16 +1,20 @@
 doctype html
-html(lang='en')
-  head
-    meta(charset='UTF-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    meta(http-equiv='X-UA-Compatible', content='ie=edge')
-    title Demo Webpack Inline
+html(lang='fr')
+  include layout/head
   body
-    h1
-      | Title Page
-    h2
-      | Site demo here 
-      span#showEnv
-    p 
-      | Loremms
-    i.icon-home
+    include layout/header
+    section.container-fluid
+      .row
+        .col-3
+          include layout/main-menu
+        .col-12
+          h1
+            | Title Page
+          h2
+            | Site demo here 
+            span#showEnv
+          p 
+            | Loremms
+          i.icon-home
+    include layout/footer
+    include layout/scripts

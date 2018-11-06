@@ -39,7 +39,7 @@ const PATHS = {
 */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
-const cssPreprocessorLoader = { loader: 'fast-sass-loader'};
+const cssPreprocessorLoader = { loader: 'fast-sass-loader' };
 /*
 //
 // Clean Dist
@@ -54,17 +54,16 @@ const CleanPlugin = require('clean-webpack-plugin');
 //
 */
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const IconFontPlugin = require('icon-font-loader').Plugin;
-const SassLintPlugin = require('sass-lint-webpack');
 
 
 module.exports = {
 	entry: [
 		PATHS.src + '/scripts/index.ts',
 		'webpack/hot/dev-server',
-  		'webpack-dev-server/client?http://localhost:8080/'
+		'webpack-dev-server/client?http://localhost:8080/'
 	],
 
 	output: {
@@ -86,11 +85,7 @@ module.exports = {
 					'style-loader',
 					'css-loader',
 					'icon-font-loader',
-					'sass-loader',
-					/*{
-						loader: MiniCssExtractPlugin.loader,
-						options: {}
-					},*/
+					'sass-loader'
 				]
 			},
 
@@ -117,9 +112,6 @@ module.exports = {
 	plugins: [
 		new CleanPlugin(PATHS.dist),
 		new UglifyJSPlugin(),
-		new SassLintPlugin({
-			file: 'sass-lint.yml'
-		}),
 		new CheckerPlugin(),
 		new CircularDependencyPlugin({
 			exclude: /a\.ts|node_modules/,
@@ -132,8 +124,8 @@ module.exports = {
 		}),
 		new HtmlWebpackInlineSourcePlugin(),
 		new MiniCssExtractPlugin({
-			filename: "[name].css",
-			chunkFilename: "[id].css"
+			filename: '[name].css',
+			chunkFilename: '[id].css'
 		}),
 		new IconFontPlugin({
 			output: './icons'
@@ -144,15 +136,14 @@ module.exports = {
 
 	devServer: {
 		contentBase: PATHS.dist,
-		//watchContentBase: true,
-
+		watchContentBase: true,
 		historyApiFallback: true,
 		inline: true,
 		open: true,
 		hot: true
 	},
 
-	devtool: "eval-source-map",
+	devtool: 'eval-source-map',
 
 	optimization: {
 		splitChunks: {
@@ -168,11 +159,6 @@ module.exports = {
 			}
 		},
 		minimizer: [
-			/*new UglifyJsPlugin({
-				cache: true,
-				parallel: true,
-				sourceMap: true // set to true if you want JS source maps
-			}),*/
 			new OptimizeCSSAssetsPlugin({})
 		]
 	}

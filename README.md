@@ -8,7 +8,6 @@ A webpack 4 boilerplate for building web apps.
 * [TS](https://www.typescriptlang.org/) language for application-scale JavaScript
 * [Icon font loader](https://www.npmjs.com/package/icon-font-loader) A webpack loader to convert svgs into font icons in CSS
 * TS linting with [Eslint](https://eslint.org), extends [eslint-config-und](https://github.com/und-tech/eslint-config-und)
-* SASS linting with [sass-lint-webpack](https://www.npmjs.com/package/sass-lint-webpack)
 
 ## Usage:
 * Clone the repo `git clone https://github.com/phbord/starter-front-webpack-pug-scss-ts-iconfontloader-minify`

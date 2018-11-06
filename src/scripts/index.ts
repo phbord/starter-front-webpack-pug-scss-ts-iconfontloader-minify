@@ -1,5 +1,6 @@
 import './../styles/main.scss';
 import * as CONST from './const';
+import * as header from './layout/header';
 
 console.log('from typescript,', this)
 
@@ -13,3 +14,7 @@ let myLink: string = domain + myUrl;
 })()
 
 console.log(' is the begining ' + domain + myUrl, CONST.LOCAL_ENV);
+
+document.addEventListener('DOMContentLoaded', function() {
+  header.headerTest();
+});
