@@ -58,6 +58,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const IconFontPlugin = require('icon-font-loader').Plugin;
 
+let compileViewFile = function(fileName) {
+	console.log('compileViewFile >>>>> ',fileName);
+	return new HtmlWebpackPlugin({
+		filename: `${fileName}.html`,
+		template: PATHS.src + `/views/${fileName}.pug`,
+		inlineSource: '.(js|css)',
+	});
+};
+
 
 module.exports = {
 	entry: [
@@ -118,10 +127,8 @@ module.exports = {
 			failOnError: true,
 			cwd: process.cwd()
 		}),
-		new HtmlWebpackPlugin({
-			template: PATHS.src + '/views/index.pug',
-			inlineSource: '.(js|css)'
-		}),
+		compileViewFile('index'), //arg => file name base
+		compileViewFile('page_2'),
 		new HtmlWebpackInlineSourcePlugin(),
 		new MiniCssExtractPlugin({
 			filename: '[name].css',
